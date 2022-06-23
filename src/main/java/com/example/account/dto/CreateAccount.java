@@ -15,7 +15,7 @@ public class CreateAccount {
         private Long userId;
         @NotNull
         @Min(100)//100원이상
-        private Long initialbalance;
+        private Long initialBalance;
     }
 
     @Getter
