@@ -6,16 +6,14 @@ import com.example.account.dto.AccountDto;
 import com.example.account.exception.AccountException;
 import com.example.account.repository.AccountRepository;
 import com.example.account.repository.AccountUserRepository;
-import com.example.account.type.AccountStatus;
 import com.example.account.type.ErrorCode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-
 import java.time.LocalDateTime;
 
-import static com.example.account.type.AccountStatus.*;
+import static com.example.account.type.AccountStatus.IN_USE;
 
 @Service
 @RequiredArgsConstructor

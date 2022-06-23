@@ -19,7 +19,7 @@ public class RedisTestService {
 
         try {
             boolean isLock = lock.tryLock(1, 5, TimeUnit.SECONDS);
-            if(!isLock) {
+            if (!isLock) {
                 log.error("======Lock acquisition failed=====");
                 return "Lock failed";
             }
