@@ -76,6 +76,9 @@ public class AccountService {
         account.setAccountStatus(UNREGISTERED);
         account.setUnRegisteredAt(LocalDateTime.now());
 
+        accountRepository.save(account);
+
+
         return AccountDto.fromEntity(account);
     }
 
@@ -84,11 +87,11 @@ public class AccountService {
             throw new AccountException(ErrorCode.USER_NOT_MATCHED);
         }
 
-        if(account.getAccountStatus() == AccountStatus.UNREGISTERED) {
+        if (account.getAccountStatus() == AccountStatus.UNREGISTERED) {
             throw new AccountException(ErrorCode.ACCOUNT_ALREADY_UNREGISTERED);
         }
 
-        if(account.getBalance() >0) {
+        if (account.getBalance() > 0) {
             throw new AccountException(ErrorCode.BALANCE_NOT_EMPTY);
         }
     }

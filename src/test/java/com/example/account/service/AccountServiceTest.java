@@ -6,6 +6,7 @@ import com.example.account.dto.AccountDto;
 import com.example.account.exception.AccountException;
 import com.example.account.repository.AccountRepository;
 import com.example.account.repository.AccountUserRepository;
+import com.example.account.type.AccountStatus;
 import com.example.account.type.ErrorCode;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,8 +20,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -125,5 +125,33 @@ class AccountServiceTest {
                 () -> accountService.createAccount(1L, 1000L));
         //then
         assertEquals(ErrorCode.USER_MAX_DETECTED, accountException.getErrorCode());
+    }
+
+    @Test
+    void deleteAccountSuccess() {
+        //given
+        AccountUser user = AccountUser.builder()
+                .name("Tory")
+                .id(12L)
+                .build();
+
+        given(accountUserRepository.findById(anyLong()))
+                .willReturn(Optional.of(user));
+        given(accountRepository.findByAccountNumber(anyString()))
+                .willReturn(Optional.of(Account.builder()
+                        .accountUser(user)
+                        .accountNumber("1000000012")
+                        .balance(0L)
+                        .build()));
+
+
+        ArgumentCaptor<Account> captor = ArgumentCaptor.forClass(Account.class);
+        //when
+        AccountDto accountDto = accountService.deleteAccount(100L, "1234567890");
+        //then
+        verify(accountRepository, times(1)).save(captor.capture());
+        assertEquals(12L, accountDto.getUserId());
+        assertEquals("1000000012", captor.getValue().getAccountNumber());
+        assertEquals(AccountStatus.UNREGISTERED, captor.getValue().getAccountStatus());
     }
 }
