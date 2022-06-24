@@ -254,7 +254,6 @@ class AccountServiceTest {
                 .id(12L)
                 .build();
 
-
         given(accountUserRepository.findById(anyLong()))
                 .willReturn(Optional.of(user));
         given(accountRepository.findByAccountNumber(anyString()))
