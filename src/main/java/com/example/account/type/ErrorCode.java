@@ -7,6 +7,7 @@ import lombok.Getter;
 @Getter
 public enum ErrorCode {
     USER_NOT_FOUND("사용자가 없습니다."),
+    AMOUNT_EXCEED_BALANCE("거래금액이 잔액보다 큼니다."),
     ACCOUNT_NOT_FOUND("계좌가 없습니다."),
     USER_NOT_MATCHED("사용자와 계좌정보가 맞지않습니다."),
     ACCOUNT_ALREADY_UNREGISTERED("이미 해지되었습니다."),
