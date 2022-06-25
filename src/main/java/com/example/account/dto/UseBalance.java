@@ -6,7 +6,7 @@ import lombok.*;
 import javax.validation.constraints.*;
 import java.time.LocalDateTime;
 
-public class useBalance {
+public class UseBalance {
     @Getter
     @Setter
     @AllArgsConstructor
@@ -35,5 +35,14 @@ public class useBalance {
         private Long amount;
         private LocalDateTime transactedAt;
 
+        public static Response from(TransactionDto transactionDto) {
+            return Response.builder()
+                    .accountNumber(transactionDto.getAccountNumber())
+                    .transactionResultType(transactionDto.getTransactionResultType())
+                    .transactionId(transactionDto.getTransactionId())
+                    .transactedAt(transactionDto.getTransactedAt())
+                    .amount(transactionDto.getAmount())
+                    .build();
+        }
     }
 }
