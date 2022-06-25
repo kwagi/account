@@ -32,9 +32,6 @@ class AccountControllerTest {
     @MockBean
     private AccountService accountService;
 
-    @MockBean
-    private RedisTestService redisTestService;
-
     @Autowired
     private MockMvc mockMvc;
     @Autowired
