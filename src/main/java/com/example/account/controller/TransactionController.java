@@ -1,6 +1,5 @@
 package com.example.account.controller;
 
-import com.example.account.dto.TransactionDto;
 import com.example.account.dto.UseBalance;
 import com.example.account.exception.AccountException;
 import com.example.account.service.TransactionService;
