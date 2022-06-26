@@ -6,7 +6,6 @@ import com.example.account.dto.CreateAccount;
 import com.example.account.dto.DeleteAccount;
 import com.example.account.exception.AccountException;
 import com.example.account.service.AccountService;
-import com.example.account.service.RedisTestService;
 import com.example.account.type.AccountStatus;
 import com.example.account.type.ErrorCode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -34,8 +33,6 @@ class AccountControllerTest {
     @MockBean
     private AccountService accountService;
 
-    @MockBean
-    private RedisTestService redisTestService;
 
     @Autowired
     private MockMvc mockMvc;
@@ -147,7 +144,7 @@ class AccountControllerTest {
         mockMvc.perform(get("/account/876"))
                 .andDo(print())
                 .andExpect(jsonPath("$.errorCode").value("ACCOUNT_NOT_FOUND"))
-                .andExpect(jsonPath("$.errorMessage").value("계좌가 없습니다.09"))
+                .andExpect(jsonPath("$.errorMessage").value("계좌가 없습니다."))
                 .andExpect(status().isOk());
     }
 }
