@@ -1,9 +1,9 @@
 insert into account_user(id, name, created_at, updated_at)
-values (1, 'kanye', now(), now())
+values (1, 'k', now(), now())
 ;
 insert into account_user(id, name, created_at, updated_at)
-values (2, 'carti', now(), now())
+values (2, 'w', now(), now())
 ;
 insert into account_user(id, name, created_at, updated_at)
-values (3, 'Tjay', now(), now())
+values (3, 'a', now(), now())
 ;
