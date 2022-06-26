@@ -43,8 +43,8 @@ class AccountServiceTest {
         //given
         AccountUser user = AccountUser.builder()
                 .name("Tory")
-                .id(12L)
                 .build();
+        user.setId(12L);
 
         given(accountUserRepository.findById(anyLong()))
                 .willReturn(Optional.of(user));
@@ -73,8 +73,8 @@ class AccountServiceTest {
         //given
         AccountUser user = AccountUser.builder()
                 .name("Tory")
-                .id(15L)
                 .build();//공통값
+        user.setId(15L);
 
         given(accountUserRepository.findById(anyLong()))
                 .willReturn(Optional.of(user));
@@ -114,8 +114,8 @@ class AccountServiceTest {
         //given
         AccountUser user = AccountUser.builder()
                 .name("Tory")
-                .id(15L)
                 .build();//공통값
+        user.setId(12L);
 
         given(accountUserRepository.findById(anyLong()))
                 .willReturn(Optional.of(user));
@@ -134,8 +134,8 @@ class AccountServiceTest {
         //given
         AccountUser user = AccountUser.builder()
                 .name("Tory")
-                .id(12L)
                 .build();
+        user.setId(12L);
 
         given(accountUserRepository.findById(anyLong()))
                 .willReturn(Optional.of(user));
@@ -176,8 +176,8 @@ class AccountServiceTest {
         //given
         AccountUser user = AccountUser.builder()
                 .name("Tory")
-                .id(12L)
                 .build();
+        user.setId(12L);
 
         given(accountUserRepository.findById(anyLong()))
                 .willReturn(Optional.of(user));
@@ -198,12 +198,12 @@ class AccountServiceTest {
         //given
         AccountUser user = AccountUser.builder()
                 .name("Tory")
-                .id(12L)
                 .build();
+        user.setId(12L);
         AccountUser user1 = AccountUser.builder()
                 .name("carti")
-                .id(13L)
                 .build();
+        user.setId(12L);
 
         given(accountUserRepository.findById(anyLong()))
                 .willReturn(Optional.of(user));
@@ -227,8 +227,8 @@ class AccountServiceTest {
         //given
         AccountUser user = AccountUser.builder()
                 .name("Tory")
-                .id(12L)
                 .build();
+        user.setId(12L);
 
 
         given(accountUserRepository.findById(anyLong()))
@@ -253,8 +253,8 @@ class AccountServiceTest {
         //given
         AccountUser user = AccountUser.builder()
                 .name("Tory")
-                .id(12L)
                 .build();
+        user.setId(12L);
 
         given(accountUserRepository.findById(anyLong()))
                 .willReturn(Optional.of(user));
@@ -278,8 +278,8 @@ class AccountServiceTest {
         //given
         AccountUser user = AccountUser.builder()
                 .name("Tory")
-                .id(12L)
                 .build();
+        user.setId(12L);
         List<Account> accounts = Arrays.asList(
                 Account.builder()
                         .accountUser(user)

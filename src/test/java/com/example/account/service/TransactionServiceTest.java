@@ -48,8 +48,8 @@ class TransactionServiceTest {
         //given
         AccountUser user = AccountUser.builder()
                 .name("Tory")
-                .id(12L)
                 .build();
+        user.setId(12L);
 
         given(accountUserRepository.findById(anyLong()))
                 .willReturn(Optional.of(user));
@@ -106,8 +106,8 @@ class TransactionServiceTest {
         //given
         AccountUser user = AccountUser.builder()
                 .name("Tory")
-                .id(12L)
                 .build();
+        user.setId(12L);
 
         given(accountUserRepository.findById(anyLong()))
                 .willReturn(Optional.of(user));
@@ -128,12 +128,12 @@ class TransactionServiceTest {
         //given
         AccountUser user = AccountUser.builder()
                 .name("Tory")
-                .id(12L)
                 .build();
+        user.setId(12L);
         AccountUser user1 = AccountUser.builder()
                 .name("carti")
-                .id(13L)
                 .build();
+        user.setId(13L);
 
         given(accountUserRepository.findById(anyLong()))
                 .willReturn(Optional.of(user));
@@ -158,8 +158,8 @@ class TransactionServiceTest {
         //given
         AccountUser user = AccountUser.builder()
                 .name("Tory")
-                .id(12L)
                 .build();
+        user.setId(12L);
 
         given(accountUserRepository.findById(anyLong()))
                 .willReturn(Optional.of(user));
@@ -184,8 +184,8 @@ class TransactionServiceTest {
         //given
         AccountUser user = AccountUser.builder()
                 .name("Tory")
-                .id(12L)
                 .build();
+        user.setId(12L);
 
         given(accountUserRepository.findById(anyLong()))
                 .willReturn(Optional.of(user));
@@ -210,8 +210,8 @@ class TransactionServiceTest {
         //given
         AccountUser user = AccountUser.builder()
                 .name("Tory")
-                .id(12L)
                 .build();
+        user.setId(12L);
 
         Account account = Account.builder()
                 .accountUser(user)
@@ -310,8 +310,8 @@ class TransactionServiceTest {
         //given
         AccountUser user = AccountUser.builder()
                 .name("Tory")
-                .id(12L)
                 .build();
+        user.setId(12L);
 
         Account account = Account.builder()
                 .accountUser(user)
